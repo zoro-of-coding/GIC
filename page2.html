@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options - Sustainable Communities</title>
+    <link rel="stylesheet" href="page2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, <span id="displayName"></span></h1>
+        <p>Would you like to:</p>
+        <select id="action">
+            <option value="donate">Donate</option>
+            <option value="receive">Receive</option>
+        </select><br>
+        <button onclick="submitAction()">Submit</button>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        // Display the user's name
+        window.onload = () => {
+            const name = localStorage.getItem('name');
+            if (name) {
+                document.getElementById('displayName').textContent = name;
+            } else {
+                // Redirect back to login if no name is found
+                window.location.href = 'page1.html';
+            }
+        };
+
+        function submitAction() {
+            const action = document.getElementById('action').value;
+            alert(`You selected to ${action}.`);
+        }
+
+        function goBack() {
+            // Redirect to the login page
+            window.location.href = 'page1.html';
+        }
+    </script>
+</body>
+</html>

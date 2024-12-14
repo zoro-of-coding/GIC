@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sustainable Communities</title>
+    <link rel="stylesheet" href="page1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form onsubmit="saveUser(event)">
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <input type="text" id="name" placeholder="Your Name" required><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function saveUser(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const name = document.getElementById('name').value;
+
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('name', name);
+
+            // Redirect to the options page after saving details
+            window.location.href = 'page2.html';
+        }
+
+    </script>
+</body>
+</html>
