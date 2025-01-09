@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Warqa Community</title>
+    <link rel="stylesheet" href="homepagestyle.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to Al Warqa Community</h1>
+        <p>Your home, our community</p>
+    </header>
+
+    <section class="widgets">
+        <div class="widget" id="medicine-donation">
+            <h2>Medicine Donation</h2>
+            <p>Help us donate medicine to those in need. Your contributions matter!</p>
+            <a href="page1.html" class="widget-link">Donate Now</a>
+        </div>
+
+        <div class="widget" id="unnamed">
+            <h2>Unnamed Widget</h2>
+            <p>More content coming soon!</p>
+        </div>
+        
+        <div class="widget" id="third-widget">
+            <h2>Community Events</h2>
+            <p>Stay tuned for upcoming events and activities in Al Warqa!</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Al Warqa Community. All rights reserved.</p>
+    </footer>
+
+    <!-- Add animations to the page -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const widgets = document.querySelectorAll('.widget');
+            widgets.forEach(widget => {
+                widget.classList.add('animate-widget');
+            });
+        });
+    </script>
+</body>
+</html>
