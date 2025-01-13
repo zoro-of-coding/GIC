@@ -3,52 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Warqa - Sustainable Community</title>
+    <title>Sustainable Community</title>
     <link rel="stylesheet" href="homepagestyle.css">
 </head>
 <body>
-    <header class="header">
-        <h1>Welcome to Al Warqa Community</h1>
-        <p>Together, we build a sustainable and thriving future.</p>
+    <header>
+        <div class="logo">Al warqa'a Community</div>
     </header>
 
-    <section class="about">
-        <h2>About Us</h2>
-        <p>Al Warqa is committed to sustainability, innovation, and community growth. Explore our initiatives to make the city greener and more eco-friendly.</p>
-    </section>
+    <div class="hero animation">
+        <h1>Welcome to the Sustainable Future</h1>
+        <p>Together we can make the world greener, cleaner, and more equitable for everyone. Join our mission today.</p>
+        <button onclick="document.getElementById('widgets').scrollIntoView()">Get Started</button>
+    </div>
 
-    <section class="widgets">
-        <div class="widget" id="medicine-donation">
+    <div id="widgets" class="widgets">
+        <div class="widget animation">
             <h2>Medicine Donation</h2>
-            <p>Contribute to providing essential medicines to those in need.</p>
-            <a href="page1.html" class="widget-link">Donate Now</a>
+            <button onclick="loginpage()" >Donate Now</button>
         </div>
-
-        <div class="widget" id="unnamed-widget">
+        <div class="widget animation">
             <h2>Unnamed</h2>
-            <p>Exciting initiatives coming soon. Stay tuned for updates!</p>
+            <button>Unnamed</button>
         </div>
-        
-        <div class="widget" id="community-events">
-            <h2>Community Events</h2>
-            <p>Join activities and events that contribute to Al Warqa's sustainability goals.</p>
-            <a href="page3.html" class="widget-link">Learn More</a>
+        <div class="widget animation">
+            <h2>Unnamed</h2>
+            <button>Unnamed</button>
         </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-        <p>© 2025 Al Warqa Sustainable Community. All rights reserved.</p>
-        <p>Contact us: info@alwarqacommunity.com</p>
+    <footer>
+        &copy; 2025 Sustainable Community. All rights reserved.
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const widgets = document.querySelectorAll('.widget');
-            widgets.forEach((widget, index) => {
-                widget.style.transitionDelay = `${index * 0.3}s`;
-                widget.classList.add('animate-widget');
-            });
-        });
+        function loginpage() {
+            window.location.href = 'page1.html';
+        }
     </script>
 </body>
 </html>

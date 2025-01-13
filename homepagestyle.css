@@ -1,151 +1,118 @@
-/* General Styles */
 body {
+    margin: 0;
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #e0f7fa, #e8f5e9);
-    color: #2e7d32;
+    color: #fff;
+    background-color: #1b1b1b;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-.header {
+header {
+    background: linear-gradient(to right, #004d40, #1b5e20);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00acc1;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(to bottom, #004d40, #263238);
     text-align: center;
-    background-color: #1b5e20;
-    color: white;
-    padding: 50px 20px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeIn 2s ease-in-out;
 }
 
-.header::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #66bb6a, transparent);
-    border-radius: 50%;
-    animation: float 5s infinite alternate;
-}
-
-.header h1 {
-    font-size: 3em;
-    margin: 0;
-    animation: slideDown 1s ease-out;
-}
-
-.header p {
-    font-size: 1.2em;
-    margin-top: 10px;
-    animation: fadeIn 1.5s ease-out;
-}
-
-/* About Section */
-.about {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #a5d6a7;
-    animation: fadeInUp 1.5s ease-out;
-}
-
-.about h2 {
-    font-size: 2em;
+.hero h1 {
+    font-size: 48px;
     margin-bottom: 20px;
 }
 
-.about p {
-    font-size: 1.2em;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #1b5e20;
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 600px;
 }
 
-/* Widgets Section */
+.hero button {
+    background-color: #00acc1;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #00838f;
+}
+
 .widgets {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 40px 10px;
+    padding: 40px;
+    background: linear-gradient(to bottom, #263238, #1b1b1b);
+    gap: 30px; /* Added gap between widgets */
 }
 
 .widget {
-    background-color: white;
-    border-radius: 15px;
-    width: 28%;
-    padding: 20px;
+    background-color: #004d40;
+    width: 30%; /* Adjusted width for better spacing */
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(30px);
-    opacity: 0;
-    transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.5s ease;
-}
-
-.widget:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .widget h2 {
-    font-size: 1.8em;
-    color: #388e3c;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
-.widget p {
-    font-size: 1.2em;
-    color: #555;
-}
-
-.widget-link {
-    display: inline-block;
-    background-color: #4caf50;
-    color: white;
+.widget button {
+    background-color: #00acc1;
+    border: none;
+    color: #fff;
     padding: 10px 20px;
-    text-decoration: none;
+    font-size: 16px;
     border-radius: 5px;
-    margin-top: 15px;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.widget-link:hover {
-    background-color: #388e3c;
-    transform: scale(1.05);
+.widget button:hover {
+    background-color: #00838f;
 }
 
-/* Footer */
-.footer {
+footer {
+    background: #1b1b1b;
     text-align: center;
-    background-color: #2e7d32;
-    color: white;
     padding: 20px;
-    margin-top: 30px;
-    font-size: 0.9em;
+    color: #888;
+    font-size: 14px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.animation {
+    animation: fadeInUp 1.5s ease;
 }
 
 @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideDown {
-    0% { transform: translateY(-50px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(20px); }
-}
-
-.animate-widget {
-    transform: translateY(0);
-    opacity: 1;
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
