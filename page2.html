@@ -32,7 +32,13 @@
 
         function submitAction() {
             const action = document.getElementById('action').value;
-            alert(`You selected to ${action}.`);
+            if (action === 'donate') {
+                // Redirect to the donate page
+                window.location.href = 'donate.html';
+            } else if (action === 'receive') {
+                // Redirect to the receive page
+                window.location.href = 'receive.html';
+            }
         }
 
         function goBack() {
