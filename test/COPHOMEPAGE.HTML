@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Community</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Sustainable Community</h1>
+    </header>
+    <main>
+        <section class="widget" id="monkey">
+            <h2>Monkey Widget</h2>
+            <button onclick="handleClick('Monkey')">Learn More</button>
+        </section>
+        <section class="widget" id="dog">
+            <h2>Dog Widget</h2>
+            <button onclick="handleClick('Dog')">Learn More</button>
+        </section>
+        <section class="widget" id="cat">
+            <h2>Cat Widget</h2>
+            <button onclick="handleClick('Cat')">Learn More</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Sustainable Community</p>
+    </footer>
+    <script>
+        function handleClick(widget) {
+            alert('You clicked on ' + widget + ' Widget');
+        }
+    </script>
+</body>
+</html>
