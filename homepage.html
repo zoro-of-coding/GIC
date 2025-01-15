@@ -8,11 +8,11 @@
 </head>
 <body>
     <header>
-        <div class="logo">Al warqa'a Community</div>
+        <div class="logo">Al Warqa'a Community</div>
     </header>
 
     <div class="hero animation">
-        <h1>Welcome to the Sustainable Future</h1>
+        <h1>Welcome to Sustainable Future</h1>
         <p>Together we can make the world greener, cleaner, and more equitable for everyone. Join our mission today.</p>
         <button onclick="document.getElementById('widgets').scrollIntoView()">Get Started</button>
     </div>
@@ -23,20 +23,23 @@
             <button onclick="loginpage()" >Donate Now</button>
         </div>
         <div class="widget animation">
-            <h2>Unnamed</h2>
-            <button>Unnamed</button>
+            <h2>Community Concerns</h2>
+            <button onclick="feedbackpage()">Click to view</button>
         </div>
         <div class="widget animation">
-            <h2>Unnamed</h2>
-            <button>Unnamed</button>
+            <h2>Community events</h2>
+            <button>Click To View</button>
         </div>
     </div>
 
     <footer>
-        &copy; 2025 Sustainable Community. All rights reserved.
+        &copy; The Website is Still in Beta Verison. Please report any bugs to the developer.
     </footer>
 
     <script>
+        function feedbackpage() {
+            window.location.href = 'feedback.html';
+        }
         function loginpage() {
             window.location.href = 'page1.html';
         }
