@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <link rel="stylesheet" href="feedbackstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback Page</h1>
+        <textarea id="feedbackInput" placeholder="Write your feedback here..."></textarea>
+        <button onclick="saveFeedback()">Submit Feedback</button>
+
+        <div class="feedback-list" id="feedbackList"></div>
+    </div>
+
+    <script>
+        // Load feedback from local storage on page load
+        window.onload = function() {
+            loadFeedback();
+        };
+
+        function saveFeedback() {
+            const feedbackInput = document.getElementById('feedbackInput');
+            const feedback = feedbackInput.value.trim();
+
+            if (feedback) {
+                // Get existing feedback from local storage
+                let feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+
+                // Add new feedback to the list
+                feedbackList.push({ text: feedback, likes: 0 });
+
+                // Save updated feedback list to local storage
+                localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
+
+                // Clear the input field
+                feedbackInput.value = '';
+
+                // Reload the feedback list
+                loadFeedback();
+            } else {
+                alert('Please write some feedback before submitting.');
+            }
+        }
+
+        function loadFeedback() {
+            const feedbackListElement = document.getElementById('feedbackList');
+
+            // Get feedback from local storage
+            const feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+
+            // Clear the current list
+            feedbackListElement.innerHTML = '';
+
+            // Render each feedback item
+            feedbackList.forEach((feedback, index) => {
+                const feedbackItem = document.createElement('div');
+                feedbackItem.className = 'feedback-item';
+
+                // Feedback text
+                const feedbackText = document.createElement('span');
+                feedbackText.textContent = feedback.text;
+                feedbackItem.appendChild(feedbackText);
+
+                // Like button
+                const likeButton = document.createElement('button');
+                likeButton.innerHTML = `&#x2764; ${feedback.likes}`;
+                likeButton.className = 'like-button';
+                likeButton.onclick = () => {
+                    feedbackList[index].likes += 1;
+                    localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
+                    loadFeedback();
+                };
+                feedbackItem.appendChild(likeButton);
+
+                // Options menu
+                const optionsMenu = document.createElement('div');
+                optionsMenu.className = 'options-menu';
+
+                const optionsButton = document.createElement('button');
+                optionsButton.className = 'options-button';
+                optionsButton.textContent = '...';
+                optionsButton.onclick = () => {
+                    optionsMenu.classList.toggle('show');
+                };
+                feedbackItem.appendChild(optionsButton);
+
+                const deleteOption = document.createElement('button');
+                deleteOption.textContent = 'Delete';
+                deleteOption.className = 'delete-option';
+                deleteOption.onclick = () => deleteFeedback(index);
+
+                const editOption = document.createElement('button');
+                editOption.textContent = 'Edit';
+                editOption.className = 'edit-option';
+                editOption.onclick = () => editFeedback(index);
+
+                optionsMenu.appendChild(editOption);
+                optionsMenu.appendChild(deleteOption);
+                feedbackItem.appendChild(optionsMenu);
+
+                feedbackListElement.appendChild(feedbackItem);
+            });
+        }
+
+        function deleteFeedback(index) {
+            let feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+
+            // Remove the feedback at the specified index
+            feedbackList.splice(index, 1);
+
+            // Save updated list to local storage
+            localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
+
+            // Reload the feedback list
+            loadFeedback();
+        }
+
+        function editFeedback(index) {
+            let feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+            const newFeedback = prompt('Edit your feedback:', feedbackList[index].text);
+
+            if (newFeedback !== null) {
+                feedbackList[index].text = newFeedback.trim();
+                localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
+                loadFeedback();
+            }
+        }
+    </script>
+</body>
+</html>
